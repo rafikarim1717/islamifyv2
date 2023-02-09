@@ -11,7 +11,7 @@ const GeneralPosts = () => import("@/views/GeneralPosts.vue");
 const ShalatPosts = () => import("@/views/ShalatPosts.vue");
 const DoaPosts = () => import("@/views/DoaPosts.vue");
 const AlquranPosts = () => import("@/views/AlquranPosts.vue");
-const HadistPosts = () => import("@/views/hadistPosts.vue");
+const HadistPosts = () => import("@/views/HadistPosts.vue");
 const Posts = () => import("@/views/Posts.vue");
 const NotFound = () => import("@/views/NotFound.vue");
 
