@@ -1,11 +1,11 @@
 <template>
   <!-- Player -->
   <div
-    class="fixed bottom-0 right-0 px-4 py-3 md:py-4"
-    :class="[minimized ? 'bg-gray-300 w-14 h-14' : 'bg-gray-300 w-full h-24']"
+    class="fixed bottom-0 right-0 px-4 py-2 md:py-4"
+    :class="[minimized ? 'bg-gray-300 w-14 h-24' : 'bg-gray-300 w-full h-24']"
   >
     <!-- Track Info -->
-    <div class="flex justify-between my-2 md:my-0">
+    <div class="flex justify-between md:my-2">
       <div class="text-left" v-if="!minimized">
         <button
           type="button"
@@ -15,8 +15,8 @@
           <i class="fas fa-solid fa-compress fa-lg"></i>
         </button>
       </div>
-      <div class="text-center center mb-1 md:mb-2" v-if="!minimized">
-        <span class="font-bold text-lg md:text-xl">{{
+      <div class="text-center center md:mb-2" v-if="!minimized">
+        <span class="font-bold md:text-xl">{{
           current_song.modified_name
         }}</span>
         <br />
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="flex flex-nowrap gap-3 md:gap-4 items-center" v-if="!minimized">
+    <div class="flex flex-nowrap gap-4 items-center mb-2 md:mb-0" v-if="!minimized">
       <!-- Play/Pause Button -->
       <button type="button" @click.prevent="toggleAudio" id="player-play-btn">
         <i

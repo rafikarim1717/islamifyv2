@@ -1,33 +1,21 @@
 <template>
   <div class="bg-gray-100">
-    <section
-      class="container mx-auto flex items-center justify-center text-center py-12"
-    >
-      <div class="max-w-sm md:max-w-lg px-4">
-        <div class="flex flex-col gap-3">
-          <h2 class="text-3xl tracking-tight md:text-4xl text-black">
-            Islamify website with collection of audio content to accompany your
-            day
-          </h2>
-          <p class="mt-3 text-gray-500 px-8">
-            Accompany your every day with islamify by listening to yout favorite
-            dzikr that makes you calms everytime.
-          </p>
-        </div>
-      </div>
+    <section class="container mx-auto py-12 px-6 md:px-12 lg:px-16 flex flex-col items-center justify-center text-center">
+      <h2 class="text-3xl md:text-4xl text-black">Islamify</h2>
+      <p class="mt-3 text-gray-500 max-w-md">Accompany your every day with Islamify by listening to your favorite dzikr that makes you calm every time.</p>
     </section>
 
     <section class="container mx-auto py-6 px-3 md:px-6 lg:px-8">
-      <div class="flex flex-row justify-center mt-2 mb-10">
+      <div class="flex flex-row justify-center mt-2 mb-10 mr-1">
         <button
-          class="text-black font-semibold p-1 rounded-lg mx-1 focus:outline-none"
+          class="text-black font-semibold p-1 rounded-lg md:mx-1 focus:outline-none"
           @click="previousCategory"
           :disabled="selectedIndex === 0"
         >
           <i class="fa fa-solid fa-arrow-left"></i>
         </button>
         <button
-          class="text-black p-3 rounded-lg mx-1"
+          class="text-black p-3 rounded-lg md:mx-1"
           :class="{ 'bg-white font-bold': categories === selectedCategory }"
           v-for="categories in categories"
           :key="categories"
@@ -36,7 +24,7 @@
           {{ categories }}
         </button>
         <button
-          class="text-black font-semibold p-1 rounded-lg mx-1"
+          class="text-black font-semibold p-1 rounded-lg md:mx-1"
           @click="nextCategory"
           :disabled="selectedIndex === categories.length - 1"
         >
@@ -55,16 +43,16 @@
           v-for="song in filteredSongs"
           :key="song.docID"
           :song="song"
-          class="flex justify-between items-center px-3 py-3 cursor-pointer transition duration-300 hover:bg-gray-100"
+          class="flex justify-between items-center p-2 md:p-3 cursor-pointer transition duration-300 hover:bg-gray-100"
         >
           <div
             @click.prevent="newSong(song)"
-            class="w-3/4 px-3 py-3 cursor-pointer"
+            class="w-3/4 px-3 py-1 md:py-2 cursor-pointer"
           >
-            <p class="hover:text-blue-600 text-lg font-semibold">
+            <p class="hover:text-blue-600 text-lg">
               {{ song.modified_name }}
             </p>
-            <span class="text-gray-500 text-sm">
+            <span class="text-gray-500 text-sm md:text-base">
               {{ "by " + "-" + song.display_name }}
             </span>
           </div>
@@ -207,7 +195,6 @@ export default {
 
 <style scoped>
 .shadow3 {
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 </style>
