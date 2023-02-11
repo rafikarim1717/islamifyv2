@@ -31,29 +31,47 @@
       <ErrorMessage class="text-red-600" name="email" />
     </div>
     <!-- Password -->
-    <div class="mb-3">
+
+    <!-- Password -->
+    <div class="mb-3 relative">
       <label class="inline-block mb-2">Password</label>
       <vee-field name="password" :bails="false" v-slot="{ field, errors }">
         <input
           class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-          type="password"
+          :type="passwordType"
           placeholder="Password"
           v-bind="field"
+          v-model="password"
         />
+        <button
+          class="absolute top-0 right-0 mt-1.5 mr-2.5 cursor-pointer hover:text-black"
+          type="password"
+          @click="switchVisibility"
+        >
+          <i class="fas fa-eye"></i>
+        </button>
         <div class="text-red-600" v-for="error in errors" :key="error">
           {{ error }}
         </div>
       </vee-field>
     </div>
     <!-- Confirm Password -->
-    <div class="mb-3">
+    <div class="mb-3 relative">
       <label class="inline-block mb-2">Confirm Password</label>
       <vee-field
+        :type="passwordType"
         name="confirm_password"
-        type="password"
+        v-model="password"
         class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
         placeholder="Confirm Password"
       />
+      <button
+          class="absolute top-0 right-0 mt-1.5 mr-2.5 cursor-pointer hover:text-black"
+          type="password"
+          @click="switchVisibility"
+        >
+          <i class="fas fa-eye"></i>
+        </button>
       <ErrorMessage class="text-red-600" name="confirm_password" />
     </div>
 
@@ -84,6 +102,8 @@ export default {
         password: "required|min:6|max:100|excluded:password",
         confirm_password: "passwords_mismatch:@password",
       },
+      passwordType: "password",
+      password: "",
       reg_in_submission: false,
       reg_show_alert: false,
       reg_alert_variant: "bg-blue-500",
@@ -122,6 +142,10 @@ export default {
       this.reg_alert_variant = "bg-green-500";
       this.reg_alert_msg = "Success! Your account has been created.";
       window.location.reload();
+    },
+    switchVisibility() {
+      this.passwordType =
+        this.passwordType === "password" ? "text" : "password";
     },
   },
 };
