@@ -18,7 +18,7 @@
                 >
                   General
                 </h1>
-                <p class="text-sm md:text-md lg:text-lg text-gray-600">
+                <p class="text-sm md:text-md xl:text-lg text-gray-700">
                   Discuss anything and everything
                 </p>
               </div>
@@ -29,12 +29,12 @@
                   ></i>
                   <span class="">{{ generalPostCount }}</span>
                 </div>
-                <div class="flex gap-1 items-center p-2 md:p-3">
+                <!-- <div class="flex gap-1 items-center p-2 md:p-3">
                   <i
                     class="fa fa-solid fa-comment fa-md md:fa-lg text-gray-600"
                   ></i>
                   <span class="">{{ generalPostReplyCount }}</span>
-                </div>
+                </div> -->
               </div>
             </div>
           </router-link>
@@ -50,7 +50,7 @@
                 >
                   Shalat
                 </h1>
-                <p class="text-sm md:text-md lg:text-lg text-gray-600">
+                <p class="text-sm md:text-md xl:text-lg text-gray-700">
                   Discuss anything about Shalat
                 </p>
               </div>
@@ -61,12 +61,12 @@
                   ></i>
                   <span class="">{{ shalatPostCount }}</span>
                 </div>
-                <div class="flex gap-1 items-center p-2 md:p-3">
+                <!-- <div class="flex gap-1 items-center p-2 md:p-3">
                   <i
                     class="fa fa-solid fa-comment fa-md md:fa-lg text-gray-600"
                   ></i>
                   <span class="">{{ shalatPostReplyCount }}</span>
-                </div>
+                </div> -->
               </div>
             </div>
           </router-link>
@@ -82,7 +82,7 @@
                 >
                   Doa
                 </h1>
-                <p class="text-sm md:text-md lg:text-lg text-gray-600">
+                <p class="text-sm md:text-md xl:text-lg text-gray-700">
                   Discuss anything about Doa
                 </p>
               </div>
@@ -92,12 +92,6 @@
                     class="fa fa-solid fa-align-justify fa-md md:fa-lg text-gray-600"
                   ></i>
                   <span class="">{{ doaPostCount }}</span>
-                </div>
-                <div class="flex gap-1 items-center p-2 md:p-3">
-                  <i
-                    class="fa fa-solid fa-comment fa-md md:fa-lg text-gray-600"
-                  ></i>
-                  <span class="">{{ doaPostReplyCount }}</span>
                 </div>
               </div>
             </div>
@@ -114,7 +108,7 @@
                 >
                   Al-Quran
                 </h1>
-                <p class="text-sm md:text-md lg:text-lg text-gray-600">
+                <p class="text-sm md:text-md xl:text-lg text-gray-700">
                   Discuss anything about Al-Quran
                 </p>
               </div>
@@ -124,12 +118,6 @@
                     class="fa fa-solid fa-align-justify fa-md md:fa-lg text-gray-600"
                   ></i>
                   <span class="">{{ alquranPostCount }}</span>
-                </div>
-                <div class="flex gap-1 items-center p-2 md:p-3">
-                  <i
-                    class="fa fa-solid fa-comment fa-md md:fa-lg text-gray-600"
-                  ></i>
-                  <span class="">{{ alquranPostReplyCount }}</span>
                 </div>
               </div>
             </div>
@@ -146,8 +134,8 @@
                 >
                   Hukum Islam
                 </h1>
-                <p class="text-sm md:text-md lg:text-lg text-gray-600">
-                  Discuss anything about this topic
+                <p class="text-sm md:text-md xl:text-lg text-gray-700">
+                  Discuss anything about Hukum Islam
                 </p>
               </div>
               <div class="flex flex-row gap-1">
@@ -157,12 +145,12 @@
                   ></i>
                   <span class="">{{ hadistPostCount }}</span>
                 </div>
-                <div class="flex gap-1 items-center p-2 md:p-3">
+                <!-- <div class="flex gap-1 items-center p-2 md:p-3">
                   <i
                     class="fa fa-solid fa-comment fa-md md:fa-lg text-gray-600"
                   ></i>
                   <span class="">{{ hadistPostReplyCount }}</span>
-                </div>
+                </div> -->
               </div>
             </div>
           </router-link>

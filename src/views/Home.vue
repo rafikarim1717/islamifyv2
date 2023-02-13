@@ -1,11 +1,16 @@
 <template>
   <div class="bg-gray-100">
-    <section class="container mx-auto py-12 px-6 md:px-12 lg:px-16 flex flex-col items-center justify-center text-center">
+    <section
+      class="container mx-auto py-12 px-6 md:px-12 lg:px-16 flex flex-col items-center justify-center text-center"
+    >
       <h2 class="text-3xl md:text-4xl text-black">Islamify</h2>
-      <p class="mt-3 text-gray-500 max-w-md">Accompany your every day with Islamify by listening to your favorite dzikr that makes you calm every time.</p>
+      <p class="mt-3 text-gray-500 max-w-md">
+        Accompany your every day with Islamify by listening to your favorite
+        dzikr that makes you calm every time.
+      </p>
     </section>
 
-    <section class="container mx-auto py-6 px-3 md:px-6 lg:px-8">
+    <section class="container mx-auto py-6 px-3 md:px-6 lg:px-8 xl:px-12">
       <div class="flex flex-row justify-center mt-2 mb-10 mr-1">
         <button
           class="text-black font-semibold p-1 rounded-lg md:mx-1 focus:outline-none"
@@ -32,7 +37,7 @@
         </button>
       </div>
 
-      <div class="bg-white rounded shadow3 relative flex flex-col py-2 mt-3">
+      <div class="bg-white rounded shadow3 relative flex flex-col">
         <div
           class="p-5 font-bold border-b text-center"
           v-icon-secondary="{ icon: 'headphones-alt', right: true }"
@@ -43,23 +48,23 @@
           v-for="song in filteredSongs"
           :key="song.docID"
           :song="song"
-          class="flex justify-between items-center p-2 md:p-3 cursor-pointer transition duration-300 hover:bg-gray-100"
+          class="flex justify-between items-center px-2 py-4 cursor-pointer transition duration-300 hover:bg-gray-100"
         >
           <div
             @click.prevent="newSong(song)"
-            class="w-3/4 px-3 py-1 md:py-2 cursor-pointer"
+            class="w-3/4 px-3 py-1 cursor-pointer"
           >
-            <p class="hover:text-blue-600 text-lg">
+            <p class="text-md md:text-lg font-semibold">
               {{ song.modified_name }}
             </p>
-            <span class="text-gray-500 text-sm md:text-base">
-              {{ "by " + "-" + song.display_name }}
+            <span class="text-gray-500 text-sm">
+              {{ song.display_name }}
             </span>
           </div>
-          <div class="">
+          <div class="mr-1 md:mr-3">
             <span class="">
               <i class="fa fa-regular fa-eye text-gray-700"></i>
-              {{ song.view_count ? (song.view_count | 0) : 0 }}
+              {{ song.view_count ? song.view_count | 0 : 0 }}
             </span>
           </div>
         </li>
@@ -115,8 +120,8 @@ export default {
   },
   computed: {
     filteredSongs() {
-      return this.selectedCategory === "Ceramah"
-        ? this.songs
+      return this.selectedCategory === "Ceramah" || !this.selectedCategory
+        ? this.songs.filter((song) => song.categories === "Ceramah")
         : this.songs.filter(
             (song) => song.categories === this.selectedCategory
           );
@@ -195,6 +200,7 @@ export default {
 
 <style scoped>
 .shadow3 {
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 </style>

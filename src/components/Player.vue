@@ -1,26 +1,22 @@
 <template>
   <!-- Player -->
   <div
-    class="fixed bottom-0 right-0 px-4 py-2 md:py-4"
+    class="fixed bottom-0 right-0 px-4 py-4 md:py-4"
     :class="[minimized ? 'bg-gray-300 w-14 h-24' : 'bg-gray-300 w-full h-24']"
   >
-    <!-- Track Info -->
-    <div class="flex justify-between md:my-2">
+    <div class="flex justify-between mb-3">
       <div class="text-left" v-if="!minimized">
         <button
           type="button"
           @click.prevent="minimized = !minimized"
           class="text-gray-500"
         >
-          <i class="fas fa-solid fa-compress fa-lg"></i>
+          <i class="fas fa-compress md:fa-lg"></i>
         </button>
       </div>
-      <div class="text-center center md:mb-2" v-if="!minimized">
-        <span class="font-bold md:text-xl">{{
-          current_song.modified_name
-        }}</span>
-        <br />
-        <span class="song-artist">{{ current_song.display_name }}</span>
+      <div class="text-center md:mb-2" v-if="!minimized">
+        <p class="text-md md:text-lg font-semibold">{{ current_song.modified_name }}</p>
+        <!-- <p class="text-sm text-gray-600">{{ current_song.display_name }}</p> -->
       </div>
       <div class="text-right" v-if="!minimized">
         <button
@@ -28,21 +24,24 @@
           @click.prevent="minimized = !minimized"
           class="text-gray-500"
         >
-          <i class="fas fa-solid fa-compress fa-lg"></i>
+          <i class="fas fa-compress md:fa-lg"></i>
         </button>
       </div>
     </div>
 
-    <div class="flex flex-nowrap gap-4 items-center mb-2 md:mb-0" v-if="!minimized">
+    <div class="flex gap-4 items-center mb-2 md:mb-0" v-if="!minimized">
       <!-- Play/Pause Button -->
       <button type="button" @click.prevent="toggleAudio" id="player-play-btn">
         <i
-          class="fa text-gray-500 text-xl"
-          :class="{ 'fa-play': !playing, 'fa-pause': playing }"
+          class="fa text-xl"
+          :class="{
+            'fa-play text-gray-500': !playing,
+            'fa-pause text-blue-500': playing,
+          }"
         ></i>
       </button>
       <!-- Current Position -->
-      <div class="player-currenttime" v-if="!minimized">{{ seek }}</div>
+      <div class="text-sm text-gray-600">{{ seek }}</div>
       <!-- Scrub Container  -->
       <div
         @click.prevent="updateSeek"
@@ -63,7 +62,7 @@
         ></span>
       </div>
       <!-- Duration -->
-      <div class="player-duration" v-if="!minimized">{{ duration }}</div>
+      <div class="text-sm text-gray-600">{{ duration }}</div>
     </div>
     <div class="center" v-if="minimized">
       <button

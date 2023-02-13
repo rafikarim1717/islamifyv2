@@ -33,137 +33,86 @@
           </button>
         </div>
         <div
-          class="fixed z-10 overflow-y-auto top-0 w-full left-0"
+          class="grid place-items-center"
           v-show="isModal"
           id="modal"
         >
           <div
-            class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+            class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-headline"
           >
-            <div class="fixed inset-0 transition-opacity">
-              <div class="absolute inset-0 bg-gray-900 opacity-75" />
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+              <label>Post A Content</label>
+              <input
+                type="text"
+                class="w-full bg-gray-200 p-2 mt-2"
+                v-model="contentNew"
+              />
             </div>
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
-              >&#8203;</span
-            >
-            <div
-              class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="modal-headline"
-            >
-              <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                <label>Post A Content</label>
-                <input
-                  type="text"
-                  class="w-full bg-gray-200 p-2 mt-2"
-                  v-model="contentNew"
-                />
-              </div>
-              <div class="px-4 py-2 text-right">
-                <button
-                  type="button"
-                  class="py-2 px-4 bg-black text-white rounded hover:bg-gray-700 mr-2"
-                  @click="toggleModal()"
-                >
-                  <!-- <i class="fas fa-times"></i> Cancel -->
-                  Cancel
-                </button>
-                <button
-                  type="button"
-                  @click="addPost()"
-                  class="py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700 mr-2"
-                >
-                  <!-- <i class="fas fa-plus"></i> Create -->
-                  Submit
-                </button>
-              </div>
+            <div class="px-4 py-2 text-right">
+              <button
+                type="button"
+                class="py-2 px-4 bg-black text-white rounded hover:bg-gray-700 mr-2"
+                @click="toggleModal()"
+              >
+                <!-- <i class="fas fa-times"></i> Cancel -->
+                Cancel
+              </button>
+              <button
+                type="button"
+                @click="addPost()"
+                class="py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700 mr-2"
+              >
+                <!-- <i class="fas fa-plus"></i> Create -->
+                Submit
+              </button>
             </div>
           </div>
         </div>
-        <div class="">
-          <div class="" v-for="post in alquranPosts" :key="post.postId">
-            <div
-              class="px-4 py-4 mx-auto bg-white shadow-md border-b hover:bg-gray-50 cursor-pointer"
-            >
-              <div class="flex justify-between mb-2">
-                <div class="flex items-center">
-                  <img
-                    src="https://stackdiary.com/140x100.png"
-                    alt="Author Photo"
-                    class="hidden object-cover w-10 h-10 mr-2 rounded-full sm:block"
-                  />
-                  <a class="font-bold text-black text-lg cursor-pointer">{{
-                    post.users
-                  }}</a>
-                </div>
-                <div class="flex flex-row gap-1" @click="toggleReport()">
-                  <div class="flex gap-1 items-center p-2 cursor-pointer">
-                    <i
-                      class="fa fa-exclamation-triangle fa-lg text-red-500 hover:text-red-800"
-                    ></i>
-                    <span class="">{{ post.report }}</span>
-                  </div>
 
-                  <div class="flex gap-1 items-center p-2 cursor-pointer">
-                    <i
-                      class="fa fa-solid fa-comment fa-lg text-gray-600 hover:text-gray-800"
-                    ></i>
-                    <router-link to="/forum/posts">
-                      <span class="">{{ post.reply }}</span>
-                    </router-link>
-                  </div>
-                </div>
+       
+        <div class="">
+          <div
+            class="px-4 py-4 mx-auto bg-white shadow-md border-b hover:bg-gray-50 cursor-pointer"
+            v-for="post in alquranPosts"
+            :key="post.postID"
+          >
+            <div class="flex justify-between mb-2">
+              <div class="flex items-center">
+                <img
+                  src="https://stackdiary.com/140x100.png"
+                  alt="Author Photo"
+                  class="hidden object-cover w-8 h-8 mr-2 rounded-full sm:block"
+                />
+                <a
+                  class="font-semibold text-gray-700 text-md xl:text-lg cursor-pointer"
+                  >{{ post.users }}</a
+                >
               </div>
-              <div class="mt-2 max-w-xs md:max-w-xl">
-                <p class="mt-2 text-black">
-                  {{ post.content }}
-                </p>
+              <div class="flex flex-row items-center">
+                <div
+                  class="flex gap-1 items-center p-2 cursor-pointer"
+                  @click="toggleReport()"
+                >
+                  <i
+                    class="fa fa-exclamation-triangle md:fa-lg text-red-500 hover:text-red-800"
+                  ></i>
+                </div>
+                <router-link
+                  :to="{ name: 'posts', params: { id: post.postID } }"
+                >
+                  <i
+                    class="fa fa-solid fa-comment md:fa-lg text-gray-600 hover:text-gray-800"
+                  ></i>
+                </router-link>
               </div>
             </div>
-          </div>
-          <div
-            class="fixed z-10 overflow-y-auto top-0 w-full left-0"
-            v-show="isReport"
-            id="isReport"
-          >
-            <div
-              class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-            >
-              <div class="fixed inset-0 transition-opacity">
-                <div class="absolute inset-0 bg-gray-900 opacity-75" />
-              </div>
-              <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
-                >&#8203;</span
-              >
-              <div
-                class="inline-block align-center bg-white rounded-lg text-center overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="modal-headline"
-              >
-                <div class="bg-white px-4 center pt-5 pb-4 sm:p-6 sm:pb-4">
-                  <p class="text-lg font-semibold">
-                    Apakah anda yakin ingin melaporkan postingan ini ?
-                  </p>
-                </div>
-                <div class="px-4 py-2 text-center">
-                  <button
-                    type="button"
-                    class="py-2 px-4 bg-black text-white rounded hover:bg-gray-700 mr-2"
-                    @click="toggleReport()"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="button"
-                    @click="addReport()"
-                    class="py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700 mr-2"
-                  >
-                    Yes!
-                  </button>
-                </div>
-              </div>
+            <div class="mt-4 max-w-xs md:max-w-xl">
+              <p class="text-black text-lg xl:text-xl">
+                {{ post.content }}
+              </p>
             </div>
           </div>
         </div>
@@ -201,7 +150,7 @@ export default {
   created() {
     this.getAlquranPost();
   },
-  
+
   methods: {
     async getAlquranPost() {
       const querySnapshot = await getDocs(alquranPostsCollection);
@@ -209,7 +158,7 @@ export default {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
         this.alquranPosts.push({
-          postId: doc.data().id,
+          postID: doc.id,
           content: doc.data().content,
           users: doc.data().users,
           date: doc.data().date,
