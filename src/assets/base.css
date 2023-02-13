@@ -14,28 +14,19 @@ button {
 }
 
 p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 h2 {
-  font-family: 'Itim', cursive;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 700;
-
-}
-h4{
-  
 }
 
-text-yellow-500 a:hover {
-  color: #f59e0b;
-  text-decoration: none;
+.max-w-custom-min {
+  max-width: 15rem;
 }
 
-.text-orange {
-  color: #f59e0b !important;
-  fill: #f59e0b !important;
-}
+
 
 .card-header .fa.text-orange,
 .card .card-header .fas.text-orange {
@@ -43,15 +34,6 @@ text-yellow-500 a:hover {
   fill: #ff5e3a;
 }
 
-.introduction-bg {
-  animation: slide 50s linear infinite;
-  will-change: background-position;
-  z-index: -1;
-}
-
-#playlist li:first-child {
-  padding-top: 25px;
-}
 
 .upload-dropbox.upload-dropbox-drag {
   color: #fff;

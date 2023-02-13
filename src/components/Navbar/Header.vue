@@ -42,7 +42,7 @@
             <router-link
               :to="{ name: 'home' }"
               @click="isOpen = false"
-              class="md:p-4 py-2 block hover:text-blue-400"
+              class="md:p-4 py-2 block hover:text-blue-600"
               href="#"
             >
               Home
@@ -52,7 +52,7 @@
             <router-link
             @click="isOpen = false"
               :to="{ name: 'home-forum' }"
-              class="md:p-4 py-2 block hover:text-blue-400"
+              class="md:p-4 py-2 block hover:text-blue-600"
             >
               Forum
             </router-link>
@@ -61,7 +61,7 @@
             <router-link
             @click="isOpen = false"
               :to="{ name: 'blog' }"
-              class="md:p-4 py-2 block hover:text-blue-400"
+              class="md:p-4 py-2 block hover:text-blue-600"
             >
               Blog
             </router-link>

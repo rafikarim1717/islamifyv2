@@ -15,7 +15,9 @@
         </button>
       </div>
       <div class="text-center md:mb-2" v-if="!minimized">
-        <p class="text-md md:text-lg font-semibold">{{ current_song.modified_name }}</p>
+        <p class="text-md md:text-lg font-semibold">
+          {{ current_song.modified_name }}
+        </p>
         <!-- <p class="text-sm text-gray-600">{{ current_song.display_name }}</p> -->
       </div>
       <div class="text-right" v-if="!minimized">

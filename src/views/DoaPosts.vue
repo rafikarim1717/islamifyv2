@@ -100,20 +100,21 @@
                   >{{ post.users }}</a
                 >
               </div>
-              <div class="flex flex-row items-center">
+              <div class="flex flex-row items-center gap-1 md:gap-2">
                 <div
-                  class="flex gap-1 items-center p-2 cursor-pointer"
+                  class="flex items-center p-2 cursor-pointer text-base md:text-lg lg:text-2xl"
                   @click="toggleReport()"
                 >
                   <i
-                    class="fa fa-exclamation-triangle md:fa-lg text-red-500 hover:text-red-800"
+                    class="fa fa-exclamation-triangle text-red-500 hover:text-red-800"
                   ></i>
                 </div>
                 <router-link
                   :to="{ name: 'posts', params: { id: post.postID } }"
+                  class="text-base md:text-lg lg:text-2xl cursor-pointer"
                 >
                   <i
-                    class="fa fa-solid fa-comment md:fa-lg text-gray-600 hover:text-gray-800"
+                    class="fa fa-solid fa-comment text-gray-600 hover:text-gray-800"
                   ></i>
                 </router-link>
               </div>

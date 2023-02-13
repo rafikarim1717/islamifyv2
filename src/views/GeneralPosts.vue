@@ -32,11 +32,7 @@
             Add Post
           </button>
         </div>
-        <div
-          class="grid place-items-center"
-          v-show="isModal"
-          id="modal"
-        >
+        <div class="grid place-items-center" v-show="isModal" id="modal">
           <div
             class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
             role="dialog"
@@ -71,8 +67,6 @@
             </div>
           </div>
         </div>
-
-
         <div class="">
           <div
             class="px-4 py-4 mx-auto bg-white shadow-md border-b hover:bg-gray-50 cursor-pointer"
@@ -91,26 +85,27 @@
                   >{{ post.users }}</a
                 >
               </div>
-              <div class="flex flex-row items-center">
+              <div class="flex flex-row items-center gap-1 md:gap-2">
                 <div
-                  class="flex gap-1 items-center p-2 cursor-pointer"
+                  class="flex items-center p-2 cursor-pointer text-base md:text-lg lg:text-2xl"
                   @click="toggleReport()"
                 >
                   <i
-                    class="fa fa-exclamation-triangle md:fa-lg text-red-500 hover:text-red-800"
+                    class="fa fa-exclamation-triangle text-red-500 hover:text-red-800"
                   ></i>
                 </div>
                 <router-link
                   :to="{ name: 'posts', params: { id: post.postID } }"
+                  class="text-base md:text-lg lg:text-2xl cursor-pointer"
                 >
                   <i
-                    class="fa fa-solid fa-comment md:fa-lg text-gray-600 hover:text-gray-800"
+                    class="fa fa-solid fa-comment text-gray-600 hover:text-gray-800"
                   ></i>
                 </router-link>
               </div>
             </div>
-            <div class="mt-4 max-w-xs md:max-w-xl">
-              <p class="text-black text-lg xl:text-xl">
+            <div class="mt-4 max-w-custom-min md:max-w-max">
+              <p class="text-black text-base md:text-lg xl:text-xl">
                 {{ post.content }}
               </p>
             </div>

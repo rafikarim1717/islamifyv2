@@ -45,7 +45,7 @@
               </div>
             </div>
             <div class="mt-4 max-w-xs md:max-w-xl">
-              <p class="text-black text-lg xl:text-xl">
+              <p class="text-black text-base lg:text-lg">
                 {{ "what should i choose ?" }}
               </p>
             </div>
@@ -121,7 +121,7 @@
             </div>
           </div>
           <div class="mt-4 max-w-xs md:max-w-xl">
-            <p class="text-black text-lg xl:text-xl">
+            <p class="text-black text-base lg:text-lg">
               {{ "what should i choose ?" }}
             </p>
           </div>
@@ -144,7 +144,7 @@
             </div>
           </div>
           <div class="mt-4 max-w-xs md:max-w-xl">
-            <p class="text-black text-lg xl:text-xl">
+            <p class="text-black text-base lg:text-lg">
               {{ "what should i choose ?" }}
             </p>
           </div>
@@ -167,7 +167,7 @@
             </div>
           </div>
           <div class="mt-4 max-w-xs md:max-w-xl">
-            <p class="text-black text-lg xl:text-xl">
+            <p class="text-black text-base lg:text-lg">
               {{ "what should i choose ?" }}
             </p>
           </div>
