@@ -50,7 +50,7 @@
           </li>
           <li>
             <router-link
-            @click="isOpen = false"
+              @click="isOpen = false"
               :to="{ name: 'home-forum' }"
               class="md:p-4 py-2 block hover:text-blue-600"
             >
@@ -59,7 +59,7 @@
           </li>
           <li>
             <router-link
-            @click="isOpen = false"
+              @click="isOpen = false"
               :to="{ name: 'blog' }"
               class="md:p-4 py-2 block hover:text-blue-600"
             >
@@ -73,9 +73,9 @@
             <!-- Dropdown toggle button -->
             <button
               @click="show = !show"
-              class="flex items-center md:p-3 py-2 bg-gray-100 text-center rounded-md"
+              class="flex items-center p-2 md:p-3 bg-gray-100 text-center rounded-md"
             >
-              <span class="">Settings</span>
+              Settings
               <svg
                 class="w-5 h-5 text-indigo-600 mt-1 font-semibold"
                 xmlns="http://www.w3.org/2000/svg"

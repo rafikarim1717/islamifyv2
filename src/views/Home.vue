@@ -129,31 +129,6 @@ export default {
   },
   methods: {
     ...mapActions(usePlayerStore, ["newSong"]),
-    // async getSongs() {
-    //   if (this.pendingRequest) {
-    //     return;
-    //   }
-
-    //   this.pendingRequest = true;
-    //   let snapshots = onSnapshot;
-    //   const docSnap = await getDoc(songsCollection(this.songs[this.songs.length - 1].docID));
-
-    //   if (this.songs.length) {
-    //     const lastDoc = docSnap;
-    //     snapshots =  await getDoc(songsCollection,orderBy("modified_name"),startAfter(lastDoc),limit(this.maxPerPage));
-    //   } else {
-    //     snapshots = await getDoc(songsCollection,orderBy("modified_name"),limit(this.maxPerPage));
-    //   }
-
-    //   snapshots.forEach((document) => {
-    //     this.songs.push({
-    //       docID: document.id,
-    //       ...document.data(),
-    //     });
-    //   });
-
-    //   this.pendingRequest = false;
-    // },
     async getSongs() {
       if (this.pendingRequest) {
         return;
@@ -202,5 +177,8 @@ export default {
 .shadow3 {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+.bg-custom-content {
+  background-color: azure;
 }
 </style>
