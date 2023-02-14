@@ -13,15 +13,15 @@
     <section class="container mx-auto py-6 px-3 md:px-6 lg:px-8 xl:px-12">
       <div class="flex flex-row justify-center mt-2 mb-10 mr-1">
         <button
-          class="text-black font-semibold p-1 rounded-lg md:mx-1 focus:outline-none"
+          class="text-black font-semibold rounded-lg focus:outline-none mr-2"
           @click="previousCategory"
           :disabled="selectedIndex === 0"
         >
           <i class="fa fa-solid fa-arrow-left"></i>
         </button>
         <button
-          class="text-black p-3 rounded-lg md:mx-1"
-          :class="{ 'bg-white font-bold': categories === selectedCategory }"
+          class="text-black p-3 rounded-lg focus:outline-none"
+          :class="{ 'shadow-custom font-bold': categories === selectedCategory }"
           v-for="categories in categories"
           :key="categories"
           @click="selectedCategory = categories"
@@ -29,7 +29,7 @@
           {{ categories }}
         </button>
         <button
-          class="text-black font-semibold p-1 rounded-lg md:mx-1"
+          class="text-black font-semibold rounded-lg focus:outline-none ml-2"
           @click="nextCategory"
           :disabled="selectedIndex === categories.length - 1"
         >
@@ -180,5 +180,8 @@ export default {
 }
 .bg-custom-content {
   background-color: azure;
+}
+.shadow-custom{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 </style>
