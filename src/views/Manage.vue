@@ -7,47 +7,47 @@
           Manage Forum
         </h2>
         <div
-      class="fixed z-10 overflow-y-auto top-0 w-full left-0"
-      v-show="isModal"
-      id="modal"
-    >
-      <div
-        class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-      >
-        <div class="fixed inset-0 transition-opacity">
-          <div class="absolute inset-0 bg-gray-900 opacity-75" />
-        </div>
-        <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
-          >&#8203;</span
+          class="fixed z-10 overflow-y-auto top-0 w-full left-0"
+          v-show="isModal"
+          id="modal"
         >
-        <div
-          class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-headline"
-        >
-          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-            <label>Are you sure want to delete this item ?</label>
-          </div>
-          <div class="bg-gray-200 px-4 py-3 text-right">
-            <button
-              type="button"
-              class="py-2 px-4 bg-black text-white rounded mr-2"
-              @click.prevent="isModal = !isModal"
+          <div
+            class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+          >
+            <div class="fixed inset-0 transition-opacity">
+              <div class="absolute inset-0 bg-gray-900 opacity-75" />
+            </div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
+              >&#8203;</span
             >
-              Cancel
-            </button>
-            <button
-              type="button"
-              
-              class="py-2 px-4 bg-red-500 text-white rounded hover:bg-red-700 mr-2"
+            <div
+              class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="modal-headline"
             >
-              <i class="fa fa-solid fa-check"></i>
-            </button>
+              <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <label>Are you sure want to delete this item ?</label>
+              </div>
+              <div class="bg-gray-200 px-4 py-3 text-right">
+                <button
+                  type="button"
+                  class="py-2 px-4 bg-black text-white rounded mr-2"
+                  @click.prevent="isModal = !isModal"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  @click="deletePost(post.docID)"
+                  class="py-2 px-4 bg-red-500 text-white rounded hover:bg-red-700 mr-2"
+                >
+                  <i class="fa fa-solid fa-check"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
         <div class="mt-10 px-2 lg:px-3 xl:px-4">
           <div class="grid md:grid-cols-2 gap-3 md:gap-6">
             <div
@@ -64,11 +64,11 @@
                 :key="post.docID"
                 class="flex justify-between items-center px-3 py-3 cursor-pointer transition duration-300 hover:bg-gray-100"
               >
-                <div class="p-1 max-w-xl">
+                <div class="p-1 max-w-custom">
                   {{ post.content }}
-                  <span class="text-gray-500 text-sm">
+                  <!-- <span class="text-gray-500 text-sm">
                     {{ post.users }}
-                  </span>
+                  </span> -->
                 </div>
                 <div class="inline-flex gap-2 p-1">
                   <div class="">
@@ -81,7 +81,6 @@
                     <i
                       class="fa fa-solid fa-trash fa-lg text-red-600 hover:text-red-800"
                     ></i>
-                    {{ 0 }}
                   </div>
                 </div>
               </li>
@@ -100,11 +99,11 @@
                 :key="post.docID"
                 class="flex justify-between items-center px-3 py-3 cursor-pointer transition duration-300 hover:bg-gray-100"
               >
-                <div class="p-1 max-w-xl">
+                <div class="p-1 max-w-custom">
                   {{ post.content }}
-                  <span class="text-gray-500 text-sm">
+                  <!-- <span class="text-gray-500 text-sm">
                     {{ post.users }}
-                  </span>
+                  </span> -->
                 </div>
                 <div class="inline-flex gap-2 p-1">
                   <div class="">
@@ -117,7 +116,6 @@
                     <i
                       class="fa fa-solid fa-trash fa-lg text-red-600 hover:text-red-800"
                     ></i>
-                    {{ 0 }}
                   </div>
                 </div>
               </li>
@@ -136,11 +134,11 @@
                 :key="post.docID"
                 class="flex justify-between items-center px-3 py-3 cursor-pointer transition duration-300 hover:bg-gray-100"
               >
-                <div class="p-1 max-w-xl">
+                <div class="p-1 max-w-custom">
                   {{ post.content }}
-                  <span class="text-gray-500 text-sm">
+                  <!-- <span class="text-gray-500 text-sm">
                     {{ post.users }}
-                  </span>
+                  </span> -->
                 </div>
                 <div class="inline-flex gap-2 p-1">
                   <div class="">
@@ -153,7 +151,6 @@
                     <i
                       class="fa fa-solid fa-trash fa-lg text-red-600 hover:text-red-800"
                     ></i>
-                    {{ 0 }}
                   </div>
                 </div>
               </li>
@@ -174,11 +171,11 @@
                 :key="post.docID"
                 class="flex justify-between items-center px-3 py-3 cursor-pointer transition duration-300 hover:bg-gray-100"
               >
-                <div class="p-1 max-w-xl">
+                <div class="p-1 max-w-custom">
                   {{ post.content }}
-                  <span class="text-gray-500 text-sm">
+                  <!-- <span class="text-gray-500 text-sm">
                     {{ post.users }}
-                  </span>
+                  </span> -->
                 </div>
                 <div class="inline-flex gap-2 p-1">
                   <div class="">
@@ -191,7 +188,6 @@
                     <i
                       class="fa fa-solid fa-trash fa-lg text-red-600 hover:text-red-800"
                     ></i>
-                    {{ 0 }}
                   </div>
                 </div>
               </li>
@@ -210,11 +206,11 @@
                 :key="post.docID"
                 class="flex justify-between items-center px-3 py-3 cursor-pointer transition duration-300 hover:bg-gray-100"
               >
-                <div class="p-1 max-w-xl">
+                <div class="p-1 max-w-custom">
                   {{ post.content }}
-                  <span class="text-gray-500 text-sm">
+                  <!-- <span class="text-gray-500 text-sm">
                     {{ post.users }}
-                  </span>
+                  </span> -->
                 </div>
                 <div class="inline-flex gap-2 p-1">
                   <div class="">
@@ -227,7 +223,6 @@
                     <i
                       class="fa fa-solid fa-trash fa-lg text-red-600 hover:text-red-800"
                     ></i>
-                    {{ 0 }}
                   </div>
                 </div>
               </li>
@@ -240,9 +235,10 @@
         <h2 class="text-center text-lg md:text-2xl fontbold mt-4">
           Manage Audio
         </h2>
+
         <div class="mt-10 px-2 lg:px-3 xl:px-4">
           <div class="md:grid md:grid-cols-3 md:gap-4">
-            <div class="col-span-1 mb-6 md:mb-0">
+            <div class="col-span-1 mb-6 md:mb-0 shadow-lg">
               <app-upload ref="upload" :addSong="addSong" />
             </div>
             <div class="col-span-2">
@@ -250,43 +246,12 @@
                 class="bg-white rounded border border-gray-200 relative flex flex-col"
               >
                 <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
-                  <span class="text-md md:text-xl">Update</span>
+                  <span class="text-lg">Content List</span>
                   <i
                     class="fa fa-compact-disc float-right text-blue-600 text-2xl"
                   ></i>
                 </div>
-                <div class="px-3 py-2">
-                  <!-- Composition Items -->
-                  <composition-item
-                    v-for="(song, i) in songs"
-                    :key="song.docID"
-                    :song="song"
-                    :updateSong="updateSong"
-                    :index="i"
-                    :removeSong="removeSong"
-                    :updateUnsavedFlag="updateUnsavedFlag"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mt-8 px-3 md:px-6">
-          <div class="md:grid md:grid-cols-3 md:gap-4">
-            <div class="col-span-1 mb-6 md:mb-0">
-              <app-upload ref="upload" :addSong="addSong" />
-            </div>
-            <div class="col-span-2">
-              <div
-                class="bg-white rounded border border-gray-200 relative flex flex-col"
-              >
-                <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
-                  <span class="card-title">{{}}</span>
-                  <i
-                    class="fa fa-compact-disc float-right text-blue-400 text-2xl"
-                  ></i>
-                </div>
-                <div class="p-6">
+                <div class="px-4 py-1">
                   <!-- Composition Items -->
                   <composition-item
                     v-for="(song, i) in songs"
@@ -317,9 +282,10 @@ import {
   alquranPostsCollection,
   doaPostsCollection,
   hadistPostsCollection,
+  auth,
 } from "@/includes/firebase";
 import CompositionItem from "@/components/CompositionItem.vue";
-import { collection, getDocs, getDoc, where } from "firebase/firestore";
+import { collection, getDocs, getDoc, setDoc } from "firebase/firestore";
 
 export default {
   name: "Manage",
@@ -340,15 +306,6 @@ export default {
     };
   },
   async created() {
-    // const snapshot = await songsCollection,where("uid", "==", auth.currentUser.uid)
-    //   .get();
-
-    // snapshot.forEach(this.addSong);
-    // const querySnapshot = getDocs(songsCollection,where("uid", "==", true));
-
-    // querySnapshot,forEach((doc) => {
-    //   this.addSong(doc);
-    // });
     this.getGeneralPost();
     this.getAlquranPost();
     this.getDoaPost();
@@ -362,6 +319,7 @@ export default {
     });
   },
   methods: {
+    getAllPost() {},
     async getGeneralPost() {
       const querySnapshot = await getDocs(generalPostsCollection);
       querySnapshot.forEach((doc) => {
@@ -424,6 +382,15 @@ export default {
     removeSong(i) {
       this.songs.splice(i, 1);
     },
+    async deletePost(docID) {
+      try {
+        const db = getFirestore();
+        await deleteDoc(doc(db, "posts", docID));
+        console.log("Post deleted successfully.");
+      } catch (error) {
+        console.error("Error deleting post: ", error);
+      }
+    },
     addSong(document) {
       const song = {
         ...document.data(),
@@ -449,3 +416,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.max-w-custom {
+  max-width: 13rem;
+}
+</style>

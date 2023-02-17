@@ -10,7 +10,7 @@
       </p>
     </section>
 
-    <section class="container mx-auto py-6 px-3 md:px-6 lg:px-8 xl:px-12">
+    <section class="container mx-auto py-6 px-3 md:px-6 lg:px-8 xl:px-20">
       <div class="flex flex-row justify-center mt-2 mb-10 mr-1">
         <button
           class="text-black font-semibold rounded-lg focus:outline-none mr-2"

@@ -53,10 +53,10 @@ export default {
         this.loading = false;
       }
     }, 3000);
-    if (auth.currentUser) {
-      this.userLoggedIn = true;
-      this.loading = false;
-    }
+    // if (auth.currentUser) {
+    //   this.userLoggedIn = true;
+    //   this.loading = false;
+    // }
   },
 };
 </script>

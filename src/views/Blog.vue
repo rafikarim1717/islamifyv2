@@ -4,16 +4,13 @@
   <!-- Component Code -->
 
   <div
-    class="relative h-screen w-full flex flex-col items-center justify-center text-center text-white bg-cover bg-center"
-    style="
-      background-image: url(https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80);
-    "
+    class="relative h-screen w-full flex flex-col items-center justify-center text-center text-white"
+    id="modal"
+  
   >
-    <div
-      class="absolute top-0 right-0 bottom-0 left-0 bg-gray-900 opacity-65"
-    ></div>
+ 
     <div class="max-w-xs z-10 mb-6">
-    <h2 class="text-2xl">This page is under development process</h2>
+    <h1 class="text-2xl text-black font-bold ">This page is under development process</h1>
     </div>
 
     <div class="flex items-end justify-center z-10">
@@ -69,3 +66,17 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.shadow1{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#modal {
+    background-image: url('../assets/images/modalBG.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+  }
+
+</style>

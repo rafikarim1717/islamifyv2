@@ -17,7 +17,7 @@
         class="inline-block align-bottom bg-white rounded text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
       >
         <div class="flex place-content-center items-center py-5">
-          <img src="@/assets/images/1.png" alt="Islamify Logo" class="" />
+          <img src="../assets/images/1.png" alt="Logo" class="" />
         </div>
         <!-- Add margin if you want to see some of the overlay behind the modal-->
         <div class="p-6 text-left">
@@ -98,5 +98,12 @@ export default {
 .shadow1{
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+
+#modal {
+    background-image: url('../assets/images/modalBG.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+  }
 
 </style>

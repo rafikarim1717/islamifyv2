@@ -22,6 +22,7 @@ const storage = getStorage();
 
 const usersCollection = collection(db, "users");
 const songsCollection = collection(db, "songs");
+const postsCollection = collection(db, "posts");
 const generalPostsCollection = collection(db, "generalPosts");
 const shalatPostsCollection = collection(db, "shalatPosts");
 const alquranPostsCollection = collection(db, "alquranPosts");
@@ -35,6 +36,7 @@ export {
   usersCollection,
   songsCollection,
   commentsCollection,
+  postsCollection,
   generalPostsCollection,
   shalatPostsCollection,
   alquranPostsCollection,

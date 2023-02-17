@@ -29,7 +29,7 @@
       />
       <button
         class="absolute top-0 right-0 mt-1.5 mr-2.5 cursor-pointer hover:text-black"
-        type="password"
+        type="button"
         @click="togglePasswordVisibility"
       >
         <i class="fas fa-eye"></i>

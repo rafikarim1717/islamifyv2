@@ -1,8 +1,8 @@
 <template>
   <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-4"></div>
-  <div class="p-3 mb-4 rounded hover:bg-gray-100 cursor-pointer">
+  <div class="p-3 rounded border border-black hover:bg-gray-100 cursor-pointer">
     <div v-show="!showForm">
-      <h4 class="inline-block text-xl lg:text-2xl">
+      <h4 class="inline-block text-xl lg:text-2xl max-w-custom">
         {{ song.modified_name }}
       </h4>
       <button
@@ -50,7 +50,6 @@
               Cancel
             </button>
             <button
-              type="button"
               @click.prevent="deleteSong"
               class="py-2 px-4 bg-red-500 text-white rounded hover:bg-red-700 mr-2"
             >
@@ -128,6 +127,8 @@
 
 <script>
 import { songsCollection, storage } from "@/includes/firebase";
+import { doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { deleteObject, ref } from "firebase/storage";
 
 export default {
   name: "CompositionItem",
@@ -175,7 +176,7 @@ export default {
       this.alert_message = "Please wait! Updating song info";
 
       try {
-        await songsCollection.doc(this.song.docID).update(values);
+        await updateDoc(doc(songsCollection, this.song.docID), values);
       } catch (error) {
         this.in_submission = false;
         this.alert_variant = "bg-red-500";
@@ -191,15 +192,28 @@ export default {
       this.alert_message = "Success!";
     },
     async deleteSong() {
-      const storageRef = storage.ref();
-      const songRef = storageRef.child(`songs/${this.song.original_name}`);
+      const storageRef = ref(storage, `songs/${this.song.original_name}`);
 
-      await songRef.delete();
+      try {
+        await deleteObject(storageRef);
+      } catch (error) {
+        console.error(error);
+      }
 
-      await songsCollection.doc(this.song.docID).delete();
+      try {
+        await deleteDoc(doc(songsCollection, this.song.docID));
+      } catch (error) {
+        console.error(error);
+      }
 
       this.removeSong(this.index);
     },
   },
 };
 </script>
+
+<style scoped>
+.max-w-custom {
+  max-width: 13rem;
+}
+</style>
