@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100">
+  <div class="bg-gray-200">
     <!--Fullscreen Background-->
     <div
       v-show="isModal"
@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-    <section class="container mx-auto py-12">
+    <section class="container mx-auto pt-12 pb-32">
       <nav class="px-5 rounded-md w-full mb-5">
         <ol class="list-reset flex">
           <li>
@@ -124,7 +124,7 @@
         <!--button add post-->
         <div class="mt-10">
           <button
-            class="float-right bg-blue-600 hover:bg-blue-500 py-3 px-8 rounded-full text-blue-100 transition duration-500"
+            class="w-full md:w-auto float-right bg-blue-500 hover:bg-blue-500 py-3 md:py-4 px-4 md:px-8 rounded-full text-blue-100 transition duration-500"
             @click="toggleModal()"
           >
             Add Post
@@ -133,7 +133,7 @@
         <!--Post Collection -->
         <div class="">
           <div
-            class="px-4 py-4 mx-auto bg-white shadow-md border-b hover:bg-gray-50 cursor-pointer"
+            class="px-4 py-4 mx-auto bg-white shadow-md border-b-2 hover:bg-gray-50 cursor-pointer"
             v-for="post in generalPosts"
             :key="post.docID"
           >
@@ -155,6 +155,14 @@
                   <span class="ml-2 text-gray-500 text-sm">{{
                     post.date
                   }}</span>
+                </div>
+                <div class="flex flex-row items-center gap-1 md:gap-2">
+                  <div
+                    class="flex items-center p-2 cursor-pointer text-base md:text-lg lg:text-2xl"
+                    @click="toggleReport"
+                  >
+                    <i class="fa fa-regular fa-comment text-gray-500 fa-lg"></i>
+                  </div>
                 </div>
               </div>
               <div class="mt-4 max-w-custom-min md:max-w-max">
@@ -320,9 +328,6 @@ export default {
     },
     toggleModal() {
       this.isModal = !this.isModal;
-    },
-    toggleReport() {
-      this.isReport = !this.isReport;
     },
     closePopup() {
       this.showPopup = !this.showPopup;

@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-gray-100">
+  <div class="bg-gray-200">
     <section
-      class="container mx-auto py-12 px-6 md:px-12 lg:px-16 flex flex-col items-center justify-center text-center"
+      class="container mx-auto pt-12 pb-32 px-6 md:px-12 lg:px-16 flex flex-col items-center justify-center text-center"
     >
       <h2 class="text-3xl md:text-4xl text-black">Islamify</h2>
       <p class="mt-3 text-gray-500 max-w-md">
@@ -48,7 +48,7 @@
           v-for="song in filteredSongs"
           :key="song.docID"
           :song="song"
-          class="flex justify-between items-center px-2 py-4 cursor-pointer transition duration-300 hover:bg-gray-100"
+          class="flex justify-between items-center px-2 py-4 cursor-pointer transition duration-300 hover:bg-gray-200"
         >
           <div
             @click.prevent="newSong(song)"

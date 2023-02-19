@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100">
+  <div class="bg-gray-200">
     <!--Fullscreen Background-->
     <div
       v-show="isModal"
@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-    <section class="container mx-auto py-12">
+    <section class="container mx-auto pt-12 pb-32">
       <nav class="px-5 rounded-md w-full mb-5">
         <ol class="list-reset flex">
           <li>

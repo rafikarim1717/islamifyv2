@@ -1,6 +1,6 @@
 <template>
-    <div class="bg-gray-100">
-      <section class="container mx-auto py-12">
+    <div class="bg-gray-200">
+      <section class="container mx-auto pt-12 pb-32">
         <div class="flex flex-col gap-10 px-5 lg:px-8">
           <nav class="px-5 rounded-md w-full">
             <ol class="list-reset flex">

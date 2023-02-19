@@ -4,15 +4,15 @@
     <nav
       class="flex flex-wrap items-center justify-between w-full py-3 md:py-3 px-4 text-lg first-color border-b"
     >
-      <div>
-        <div @click="reload()" class="cursor-pointer">
+      <router-link :to="{ name: 'home' }">
+        <div class="cursor-pointer">
           <img
             src="../../assets/images/2.png"
             alt="Islamify Logo"
             class="w-14 h-14"
           />
         </div>
-      </div>
+      </router-link>
 
       <button @click="isOpen = !isOpen">
         <svg
@@ -73,7 +73,7 @@
             <!-- Dropdown toggle button -->
             <button
               @click="show = !show"
-              class="flex items-center p-2 md:p-3 bg-gray-100 text-center rounded-md"
+              class="flex items-center p-2 md:p-3 bg-gray-200 text-center rounded-md"
             >
               Settings
               <svg

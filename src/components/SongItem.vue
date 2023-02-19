@@ -1,6 +1,6 @@
 <template>
   <li
-    class="flex justify-between items-center p-3 pl-6 cursor-pointer transition duration-300 hover:bg-gray-100 example snapshot"
+    class="flex justify-between items-center p-3 pl-6 cursor-pointer transition duration-300 hover:bg-gray-200 example snapshot"
   >
     <div>
         {{ song.modified_name }}

@@ -1,10 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 const Home = () => import("@/views/Home.vue");
-const About = () => import("@/views/About.vue");
 const Manage = () => import("@/views/Manage.vue");
 const Blog = () => import("@/views/Blog.vue");
-const Song = () => import("@/views/Song.vue");
 const Auth = () => import("@/components/Auth.vue");
 const Forum = () => import("@/views/Forum.vue");
 const GeneralPosts = () => import("@/views/GeneralPosts.vue");
@@ -25,11 +23,6 @@ const routes = [
     name: "auth",
     path: "/auth",
     component: Auth,
-  },
-  {
-    name: "about",
-    path: "/about",
-    component: About,
   },
   {
     name: "blog",
@@ -87,11 +80,6 @@ const routes = [
   {
     path: "/manage",
     redirect: { name: "manage" },
-  },
-  {
-    name: "song",
-    path: "/song/:id",
-    component: Song,
   },
   {
     name: "not-found",

@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-gray-100">
-    <div class="container mx-auto py-12 px-5 lg:px-8">
+  <div class="bg-gray-200 relative">
+    <div class="container mx-auto pt-12 pb-32 px-5 lg:px-8">
       <nav class="px-2 rounded-md w-full mb-6">
         <ol class="list-reset flex">
           <li>
@@ -19,14 +19,14 @@
             <p href="#" class="text-gray-500 mx-2">/</p>
           </li>
           <li>
-            <p href="#" class="text-black">
+            <p href="#" class="text-black capitalize">
               {{ posts.length ? posts[0].categories : "" }}
             </p>
           </li>
         </ol>
       </nav>
       <!-- Post -->
-      <section class="">
+      <section class="my-4">
         <div class="flex flex-col gap-10">
           <div
             class="w-full p-4 md:p-5 mx-auto bg-white shadow-md border-b hover:bg-gray-50 cursor-pointer"
@@ -74,51 +74,7 @@
           </button>
         </div>
       </section>
-      <!-- Report Modal-->
-      <div
-        class="fixed z-10 overflow-y-auto top-0 w-full left-0"
-        v-show="isReport"
-        id="isReport"
-      >
-        <div
-          class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-        >
-          <div class="fixed inset-0 transition-opacity">
-            <div class="absolute inset-0 bg-gray-900 opacity-75" />
-          </div>
-          <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
-            >&#8203;</span
-          >
-          <div
-            class="inline-block align-center bg-white rounded-lg text-center overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-headline"
-          >
-            <div class="bg-white px-4 center pt-5 pb-4 sm:p-6 sm:pb-4">
-              <p class="text-lg font-semibold">
-                Apakah anda yakin ingin melaporkan postingan ini ?
-              </p>
-            </div>
-            <div class="px-4 py-2 text-center">
-              <button
-                type="button"
-                class="py-2 px-4 bg-black text-white rounded hover:bg-gray-700 mr-2"
-                @click="toggleReport()"
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                @click="addReport()"
-                class="py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700 mr-2"
-              >
-                Yes!
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+
       <!-- Form -->
       <section class="my-2" v-if="isComment">
         <div
@@ -196,27 +152,111 @@
           </div>
         </div>
       </section>
+      <div
+        v-if="isReport"
+        class="fixed top-0 left-0 w-full h-full bg-gray-800 opacity-50 z-50"
+      ></div>
+      <div
+        v-if="isReport"
+        id="isReport"
+        class="absolute inset-0 flex justify-center items-center z-50"
+      >
+        <div class="bg-white rounded-lg p-8 center text-center">
+          <h2 class="text-xl font-bold mb-4">Report Post</h2>
+          <form class="flex flex-col gap-4">
+            <div class="flex flex-col">
+              <label class="mb-1 font-semibold">Reason for Report</label>
+              <textarea
+                class="h-24 bg-gray-300 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm"
+                name="reason"
+              ></textarea>
+            </div>
+            <div class="flex justify-center mt-4">
+              <button
+                type="button"
+                @click="addReport()"
+                class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-500"
+              >
+                Submit Report
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="fixed z-10 inset-0 overflow-y-auto" v-if="showPopup">
+      <div class="flex items-center justify-center min-h-screen">
+        <div class="fixed inset-0 transition-opacity">
+          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <div
+          class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+        >
+          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="sm:flex sm:items-start">
+              <div
+                class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10"
+              >
+                <svg
+                  class="h-6 w-6 text-blue-600"
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                  Success!
+                </h3>
+                <div class="mt-2">
+                  <p class="text-sm leading-5 text-gray-500">
+                    Anda telah berhasil melaporkan postingan.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+            <span
+              class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto"
+            >
+              <button
+                @click="closePopup"
+                type="button"
+                class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-blue-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+              >
+                OK
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import {
-  collection,
   doc,
   getDocs,
   getDoc,
   where,
-  addDoc,
   query,
   updateDoc,
 } from "firebase/firestore";
 import { postsCollection, usersCollection, auth } from "@/includes/firebase";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default {
   data() {
     return {
+      showPopup: false,
       posts: [],
       isModal: false,
       isComment: false,
@@ -300,7 +340,12 @@ export default {
       this.comment_in_submission = false;
       this.comment_alert_variant = "bg-green-500";
       this.comment_alert_message = "Comment added!";
-      resetForm();
+
+      resetForm(); // reset the form
+
+      setTimeout(() => {
+        this.isComment = !this.isComment;
+      }, 1000);
     },
     async getComments() {
       const postRef = doc(postsCollection, this.$route.params.id);
@@ -314,12 +359,27 @@ export default {
     toggleComment() {
       this.isComment = !this.isComment;
     },
-    addReport() {
-      alert("Anda telah berhasil melaporkan postingan");
-      windows.location.reload();
+    async addReport() {
+      const postRef = doc(postsCollection, this.$route.params.id);
+      const postSnapshot = await getDoc(postRef);
+
+      if (postSnapshot.exists()) {
+        const reportCount = postSnapshot.data().report || 0;
+        await updateDoc(postRef, { report: reportCount + 1 });
+      }
+
+      this.isReport = !this.isReport;
+      this.showPopup = !this.showPopup;
     },
     toggleReport() {
       this.isReport = !this.isReport;
+    },
+    toggleModal() {
+      this.isModal = !this.isModal;
+    },
+    closePopup() {
+      this.showPopup = !this.showPopup;
+      window.location.reload();
     },
   },
   watch: {

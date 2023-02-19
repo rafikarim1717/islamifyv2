@@ -1,6 +1,6 @@
 <template>
   <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-4"></div>
-  <div class="p-3 rounded border border-black hover:bg-gray-100 cursor-pointer">
+  <div class="p-3 rounded border border-black hover:bg-gray-200 cursor-pointer">
     <div v-show="!showForm">
       <h4 class="inline-block text-xl lg:text-2xl max-w-custom">
         {{ song.modified_name }}
