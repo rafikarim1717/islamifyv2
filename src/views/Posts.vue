@@ -111,78 +111,48 @@
       </section>
       <!-- Comments -->
       <section class="mt-24">
-        <div
-          class="flex flex-row justify-between p-2 font-bold border-b border-black my-3"
-          v-if="posts.length && posts[0].reply"
-        >
-          <!-- Comment Count -->
-          <h2 class="text-left text-lg">
-            {{ `${posts[0].reply.length} Comments` }}
-          </h2>
-          <i class="fa fa-comments float-right text-blue-600 text-2xl"></i>
-        </div>
-        <div
-          class="w-full p-4 md:p-5 mx-auto bg-white shadow-md border-b hover:bg-gray-50 cursor-pointer"
-          v-if="posts.length && posts[0].reply"
-          v-for="(reply, index) in posts[0].reply"
-          :key="index"
-        >
-          <div class="flex justify-between mb-2">
-            <div class="flex items-center">
-              <img
-                src="https://stackdiary.com/140x100.png"
-                alt="Author Photo"
-                class="hidden object-cover w-8 h-8 mr-2 rounded-full sm:block"
-              />
-              <h1
-                class="font-semibold text-gray-700 text-md xl:text-lg cursor-pointer"
-              >
-                {{ reply.name }}
-              </h1>
-
-              <span class="ml-2 text-gray-500 text-sm">
-                {{ reply.datePosted }}
-              </span>
-            </div>
+        <div class="" v-if="posts.length && posts[0].reply">
+          <div
+            class="flex flex-row justify-between p-2 font-bold border-b border-black my-3"
+            v-if="posts.length && posts[0].reply"
+          >
+            <!-- Comment Count -->
+            <h2 class="text-left text-lg">
+              {{ `${posts[0].reply.length} Comments` }}
+            </h2>
+            <i class="fa fa-comments float-right text-blue-600 text-2xl"></i>
           </div>
-          <div class="mt-4 max-w-xs md:max-w-xl">
-            <p class="text-black text-base lg:text-lg">
-              {{ reply.content }}
-            </p>
+          <div
+            class="w-full p-4 md:p-5 mx-auto bg-white shadow-md border-b hover:bg-gray-50 cursor-pointer"
+            v-for="(reply, index) in posts[0].reply"
+            :key="index"
+          >
+            <div class="flex justify-between mb-2">
+              <div class="flex items-center">
+                <img
+                  src="https://stackdiary.com/140x100.png"
+                  alt="Author Photo"
+                  class="hidden object-cover w-8 h-8 mr-2 rounded-full sm:block"
+                />
+                <h1
+                  class="font-semibold text-gray-700 text-md xl:text-lg cursor-pointer"
+                >
+                  {{ reply.name }}
+                </h1>
+
+                <span class="ml-2 text-gray-500 text-sm">
+                  {{ reply.datePosted }}
+                </span>
+              </div>
+            </div>
+            <div class="mt-4 max-w-xs md:max-w-xl">
+              <p class="text-black text-base lg:text-lg">
+                {{ reply.content }}
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      <div
-        v-if="isReport"
-        class="fixed top-0 left-0 w-full h-full bg-gray-800 opacity-50 z-50"
-      ></div>
-      <div
-        v-if="isReport"
-        id="isReport"
-        class="absolute inset-0 flex justify-center items-center z-50"
-      >
-        <div class="bg-white rounded-lg p-8 center text-center">
-          <h2 class="text-xl font-bold mb-4">Report Post</h2>
-          <form class="flex flex-col gap-4">
-            <div class="flex flex-col">
-              <label class="mb-1 font-semibold">Reason for Report</label>
-              <textarea
-                class="h-24 bg-gray-300 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm"
-                name="reason"
-              ></textarea>
-            </div>
-            <div class="flex justify-center mt-4">
-              <button
-                type="button"
-                @click="addReport()"
-                class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-500"
-              >
-                Submit Report
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
     <div class="fixed z-10 inset-0 overflow-y-auto" v-if="showPopup">
       <div class="flex items-center justify-center min-h-screen">

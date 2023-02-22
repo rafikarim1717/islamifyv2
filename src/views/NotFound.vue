@@ -19,7 +19,8 @@
           to="/"
           href="#"
           class="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
-          >Back to homepage</router-link>
+          >Back to homepage</router-link
+        >
       </div>
     </div>
   </section>
@@ -29,8 +30,7 @@
 export default {
   name: "NotFound",
   data() {
-    return {
-    };
+    return {};
   },
 };
 </script>

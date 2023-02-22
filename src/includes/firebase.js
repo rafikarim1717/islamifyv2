@@ -19,7 +19,6 @@ const auth = getAuth();
 const db = getFirestore();
 const storage = getStorage();
 
-
 const usersCollection = collection(db, "users");
 const songsCollection = collection(db, "songs");
 const postsCollection = collection(db, "posts");

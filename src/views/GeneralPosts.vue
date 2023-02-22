@@ -236,16 +236,8 @@
 </template>
 
 <script>
-import {
-  collection,
-  getDocs,
-  getDoc,
-  where,
-  addDoc,
-  query,
-} from "firebase/firestore";
+import { getDocs, where, addDoc, query } from "firebase/firestore";
 import { postsCollection, usersCollection, auth } from "@/includes/firebase";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default {
   data() {

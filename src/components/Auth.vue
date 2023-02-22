@@ -30,7 +30,8 @@
                 href="#"
                 @click.prevent="tab = 'login'"
                 :class="{
-                  'hover:text-white text-white bg-blue-700 shadow1': tab === 'login',
+                  'hover:text-white text-white bg-blue-700 shadow1':
+                    tab === 'login',
                   'hover:text-blue-700 shadow1': tab === 'register',
                 }"
                 >Login</a
@@ -42,7 +43,8 @@
                 href="#"
                 @click.prevent="tab = 'register'"
                 :class="{
-                  'hover:text-white text-white bg-blue-600 shadow1': tab === 'register',
+                  'hover:text-white text-white bg-blue-600 shadow1':
+                    tab === 'register',
                   'hover:text-blue-600 shadow1': tab === 'login',
                 }"
                 >Register</a
@@ -95,15 +97,14 @@ export default {
 </script>
 
 <style scoped>
-.shadow1{
+.shadow1 {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 #modal {
-    background-image: url('../assets/images/modalBG.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.8;
-  }
-
+  background-image: url("../assets/images/modalBG.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
 </style>

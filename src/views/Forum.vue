@@ -126,10 +126,10 @@
                 <h1
                   class="text-lg md:text-xl font-semibold hover:text-blue-600"
                 >
-                  Hukum Islam
+                  Hadist
                 </h1>
                 <p class="text-sm md:text-md xl:text-lg text-gray-700">
-                  Discuss anything about Hukum Islam
+                  Discuss anything about Hadist
                 </p>
               </div>
               <div class="flex flex-row gap-1">

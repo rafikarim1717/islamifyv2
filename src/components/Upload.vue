@@ -122,7 +122,7 @@ export default {
             song.url = await getDownloadURL(task.snapshot.ref);
             const songRef = await addDoc(songsCollection, song);
             const songSnapshot = await getDoc(songRef);
-            console.log(songSnapshot)
+            console.log(songSnapshot);
             this.addSong(songSnapshot);
 
             this.uploads[uploadIndex].variant = "bg-blue-600";

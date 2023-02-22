@@ -27,7 +27,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,png,jpg,}"],
+        globPatterns: ["**/*.{vue,js,css,html,png,jpg,}"],
       },
     }),
     // visualizer({ open: true }),
