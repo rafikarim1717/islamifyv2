@@ -838,20 +838,19 @@
 
         <div class="mt-10 px-2 lg:px-3 xl:px-4">
           <div class="md:grid md:grid-cols-3 md:gap-4">
-            <div class="col-span-1 mb-6 md:mb-0 shadow-lg">
+            <div class="col-span-1 mb-6 md:mb-0">
               <app-upload ref="upload" :addSong="addSong" />
             </div>
             <div class="col-span-2">
-              <div
-                class="bg-white rounded border border-gray-200 relative flex flex-col"
-              >
-                <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
+              <div class="bg-white rounded relative flex flex-col">
+                <div class="px-6 pt-6 pb-5 font-bold border-b border-black">
                   <span class="text-lg">Content List</span>
                   <i
                     class="fa fa-compact-disc float-right text-blue-600 text-2xl"
                   ></i>
                 </div>
-                <div class="px-4 py-1">
+
+                <div class="p-3 space-y-4">
                   <!-- Composition Items -->
                   <composition-item
                     v-for="(song, i) in songs"
@@ -931,7 +930,8 @@ export default {
     },
     updateSong(i, values) {
       this.songs[i].modified_name = values.modified_name;
-      this.songs[i].genre = values.genre;
+      this.songs[i].categories = values.categories;
+      this.songs[i].artist = values.display_name;
     },
     removeSong(i) {
       this.songs.splice(i, 1);

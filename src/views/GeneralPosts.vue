@@ -316,6 +316,7 @@ export default {
     },
     addReport() {
       alert("Anda telah berhasil melaporkan postingan");
+      // eslint-disable-next-line no-undef
       windows.location.reload();
     },
     toggleModal() {

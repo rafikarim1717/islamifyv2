@@ -55,12 +55,6 @@
                   ></i>
                   <span class="">{{ shalatPostCount }}</span>
                 </div>
-                <!-- <div class="flex gap-1 items-center p-2 md:p-3">
-                  <i
-                    class="fa fa-solid fa-comment fa-md md:fa-lg text-gray-600"
-                  ></i>
-                  <span class="">{{ shalatPostCount }}</span>
-                </div> -->
               </div>
             </div>
           </router-link>
@@ -139,12 +133,6 @@
                   ></i>
                   <span class="">{{ hadistPostCount }}</span>
                 </div>
-                <!-- <div class="flex gap-1 items-center p-2 md:p-3">
-                  <i
-                    class="fa fa-solid fa-comment fa-md md:fa-lg text-gray-600"
-                  ></i>
-                  <span class="">{{ hadistPostCount }}</span>
-                </div> -->
               </div>
             </div>
           </router-link>

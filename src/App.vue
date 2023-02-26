@@ -3,7 +3,7 @@
     <Auth />
   </div>
   <div v-if="loading" class="h-screen flex items-center justify-center">
-    <div class="spinner w-6 h-6 mx-auto text-gray-600 animate-spin"></div>
+    <div class="spinner w-12 h-12 mx-auto text-gray-600 animate-spin"></div>
   </div>
   <div class="" v-if="userLoggedIn && !loading">
     <app-header />
@@ -27,7 +27,6 @@ import Auth from "@/components/Auth.vue";
 import { mapWritableState } from "pinia";
 import useUserStore from "@/stores/user";
 import usePlayerStore from "@/stores/player";
-import { auth } from "./includes/firebase";
 import AppPlayer from "@/components/Player.vue";
 
 export default {
@@ -53,10 +52,6 @@ export default {
         this.loading = false;
       }
     }, 3000);
-    // if (auth.currentUser) {
-    //   this.userLoggedIn = true;
-    //   this.loading = false;
-    // }
   },
 };
 </script>
@@ -73,7 +68,7 @@ export default {
 }
 
 .spinner {
-  border: 2px solid rgba(0, 0, 0, 0.1);
+  border: 5px solid rgba(0, 0, 0, 0.1);
   border-left-color: #3490dc;
   border-radius: 50%;
   animation: spin 1s linear infinite;

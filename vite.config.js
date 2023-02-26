@@ -16,7 +16,7 @@ export default defineConfig({
         enabled: true,
       },
       manifest: {
-        name: "Islamify App",
+        name: "Islamify",
         theme_color: "#8a8a8a",
         icons: [
           {

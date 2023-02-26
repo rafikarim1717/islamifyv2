@@ -69,58 +69,6 @@
         </ol>
       </nav>
       <div class="flex flex-col gap-8 px-5">
-        <!-- <div
-          class="bg-white text-black py-2 px-4 md:py-4 md:px-8 font-medium tracking-wider flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 rounded-md"
-        >
-          <p class="text-center md:text-left">
-            Welcome to our Islamify community! To ensure that everyone can have
-            a positive experience, please follow these rules:
-          </p>
-          <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <div
-              class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-green-500 rounded-full"
-            >
-              <span class="text-white text-lg md:text-xl font-bold">1</span>
-            </div>
-            <p class="text-center md:text-left">
-              Be respectful and civil to others
-            </p>
-          </div>
-          <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <div
-              class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-green-500 rounded-full"
-            >
-              <span class="text-white text-lg md:text-xl font-bold">2</span>
-            </div>
-            <p class="text-center md:text-left">
-              Avoid using offensive or abusive language
-            </p>
-          </div>
-          <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <div
-              class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-green-500 rounded-full"
-            >
-              <span class="text-white text-lg md:text-xl font-bold">3</span>
-            </div>
-            <p class="text-center md:text-left">
-              Stay on topic and avoid spamming
-            </p>
-          </div>
-
-          <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <div
-              class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-green-500 rounded-full"
-            >
-              <span class="text-white text-lg md:text-xl font-bold">6</span>
-            </div>
-            <p class="text-center md:text-left">
-              Report any inappropriate content or behavior
-            </p>
-          </div>
-          <p class="text-center md:text-left">
-            Thank you for your cooperation!
-          </p>
-        </div> -->
         <!--button add post-->
         <div class="mt-10">
           <button
@@ -228,16 +176,8 @@
 </template>
 
 <script>
-import {
-  collection,
-  getDocs,
-  getDoc,
-  where,
-  addDoc,
-  query,
-} from "firebase/firestore";
+import { getDocs, where, addDoc, query } from "firebase/firestore";
 import { postsCollection, usersCollection, auth } from "@/includes/firebase";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default {
   data() {
@@ -317,6 +257,7 @@ export default {
     },
     addReport() {
       alert("Anda telah berhasil melaporkan postingan");
+      // eslint-disable-next-line no-undef
       windows.location.reload();
     },
     toggleModal() {

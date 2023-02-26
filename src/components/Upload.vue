@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white rounded border border-gray-200 relative flex flex-col">
-    <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
-      <span class="text-md md:text-lg">Upload</span>
+    <div class="px-6 pt-6 pb-5 font-bold border-b border-black">
+      <span class="text-lg">Upload File</span>
       <i class="fas fa-upload float-right text-blue-600 text-2xl"></i>
     </div>
     <div class="p-6">
@@ -9,7 +9,7 @@
       <div
         class="w-full px-10 py-20 rounded text-center cursor-pointer border border-dashed border-gray-400 text-gray-400 transition duration-500 hover:text-white hover:bg-gray-400 hover:border-bg-blue-600 hover:border-solid"
         :class="{
-          'bg-bg-blue-600 border-bg-blue-600 border-solid': is_dragover,
+          'bg-blue-600 border-blue-600 border-solid': is_dragover,
         }"
         @drag.prevent.stop=""
         @dragstart.prevent.stop=""
@@ -44,7 +44,7 @@
 
 <script>
 import { storage, auth, songsCollection } from "@/includes/firebase";
-import { addDoc, getDoc, getDocs, setDoc } from "firebase/firestore";
+import { addDoc, getDoc } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 
 export default {
@@ -80,7 +80,6 @@ export default {
           });
           return;
         }
-
         // const songsRef = storageRef(`songs/${file.name}`); // music-c2596.appspot.com/songs/example.mp3
         const songsRef = ref(storage, `songs/${file.name}`);
         console.log(songsRef);
@@ -91,7 +90,7 @@ export default {
             task,
             current_progress: 0,
             name: file.name,
-            variant: "bg-bg-blue-600",
+            variant: "bg-blue-600",
             icon: "fas fa-spinner fa-spin",
             text_class: "",
           }) - 1;
@@ -125,14 +124,13 @@ export default {
             console.log(songSnapshot);
             this.addSong(songSnapshot);
 
-            this.uploads[uploadIndex].variant = "bg-blue-600";
+            this.uploads[uploadIndex].variant = "bg-green-600";
             this.uploads[uploadIndex].icon = "fas fa-check";
-            this.uploads[uploadIndex].text_class = "text-blue-600";
+            this.uploads[uploadIndex].text_class = "text-green-600";
           }
         );
       });
     },
-
     cancelUploads() {
       this.uploads.forEach((upload) => {
         upload.task.cancel();

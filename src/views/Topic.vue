@@ -176,9 +176,8 @@
 </template>
 
 <script>
-import { collection, getDocs, getDoc, where, addDoc } from "firebase/firestore";
+import { getDocs, addDoc } from "firebase/firestore";
 import { generalPostsCollection, auth } from "@/includes/firebase";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default {
   data() {
@@ -240,22 +239,15 @@ export default {
     },
     addReport() {
       alert("Anda telah berhasil melaporkan postingan");
+      // eslint-disable-next-line no-undef
       windows.location.reload();
     },
-    // report(postID) {
-    //   // increment post.report
-    // },
+
     toggleModal() {
       this.isModal = !this.isModal;
     },
     toggleReport() {
       this.isReport = !this.isReport;
-      // this.generalPosts = this.generalPosts.map((post) => {
-      //   if (post.postId === postID) {
-      //     post.report++;
-      //   }
-      //   return post;
-      // });
     },
   },
 };

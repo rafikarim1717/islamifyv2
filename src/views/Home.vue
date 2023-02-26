@@ -66,7 +66,7 @@
           <div class="mr-1 md:mr-3">
             <span class="">
               <i class="fa fa-regular fa-eye text-gray-700"></i>
-              {{ song.view_count ? song.view_count | 0 : 0 }}
+              {{ song.view_count ? song.view_count : 0 }}
             </span>
           </div>
         </li>
@@ -79,15 +79,12 @@
 import { mapActions } from "pinia";
 import usePlayerStore from "@/stores/player";
 import { songsCollection } from "@/includes/firebase";
-import { orderBy, limit, getDocs, query } from "firebase/firestore";
-import AppSongItem from "@/components/SongItem.vue";
+import { orderBy, limit, getDocs, query, startAfter } from "firebase/firestore";
 import IconSecondary from "@/directives/icon-secondary";
 
 export default {
   name: "Home",
-  components: {
-    AppSongItem,
-  },
+  components: {},
   directives: {
     "icon-secondary": IconSecondary,
   },
@@ -102,16 +99,6 @@ export default {
       selectedIndex: 0,
     };
   },
-  // watch: {
-  //   songs: {
-  //     handler: function (newValue) {
-  //       newValue.forEach((song) => {
-  //         song.view_count = this.songs.view;
-  //       });
-  //     },
-  //     deep: true,
-  //   },
-  // },
 
   async created() {
     this.getSongs();

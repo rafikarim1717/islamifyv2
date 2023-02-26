@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-4"></div>
-  <div class="p-3 rounded border border-black hover:bg-gray-200 cursor-pointer">
-    <div v-show="!showForm">
-      <h4 class="inline-block text-xl lg:text-2xl max-w-custom">
+  <div class="p-3 rounded shadow-custom cursor-pointer">
+    <div v-show="!showForm" class="">
+      <p class="text-md text-blue-600">{{ index + "" + " " }}</p>
+      <h4 class="inline-block text-lg lg:text-xl max-w-custom">
         {{ song.modified_name }}
       </h4>
       <button
@@ -181,6 +181,7 @@ export default {
         this.in_submission = false;
         this.alert_variant = "bg-red-500";
         this.alert_message = "Something went wrong! Try again later";
+        console.log(error);
         return;
       }
 
@@ -190,6 +191,7 @@ export default {
       this.in_submission = false;
       this.alert_variant = "bg-green-500";
       this.alert_message = "Success!";
+      this.showForm = !this.showForm;
     },
     async deleteSong() {
       const storageRef = ref(storage, `songs/${this.song.original_name}`);
@@ -215,5 +217,9 @@ export default {
 <style scoped>
 .max-w-custom {
   max-width: 13rem;
+}
+.shadow-custom {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 </style>
